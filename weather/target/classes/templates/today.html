@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Today</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/todayStyle.css">
+</head>
+<nav>
+    <label class="logo" >OpenWeather</label>
+    <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">weather
+            <i class="drop_down"></i>
+        </a>
+            <ul>
+                <li><a href="/Today">today</a></li>
+                <li><a href="/Week">week</a></li>
+                <li><a href="/30Days">30 days</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</nav>
+<form action="#" th:action="@{/today}" method="post" th:object="${currentData}">
+    <div class="app-wrap">
+        <header>
+            <input type="text" th:field="*{location}" autocomplete="off" class="search-box" placeholder="Search for a city..."  />
+        </header>
+        <main>
+            <section class="location">
+                <div class="city"><a th:text="${name}">city</a></div>
+                <div class="date"><a th:text="${date}">date</a></div>
+            </section>
+            <div class="current">
+                <div class="temp"><a th:text="${temp}">Temp</a><span>°c</span></div>
+                <div class="weather"><a th:text="${desc}">desc</a></div>
+
+            </div>
+        </main>
+    </div>
+</form>
+
+</body>
+</html>
